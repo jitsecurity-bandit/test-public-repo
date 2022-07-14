@@ -1,0 +1,26 @@
+name: Run COntrols
+
+on:
+  push:
+     branches:
+       - main
+
+jobs:
+  run-controls:
+    name: Run the controls
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for deploy-test succeed
+        uses: lewagon/wait-on-check-action@v1.0.0
+        with:
+          ref: ${{ github.ref }}
+          check-name: 'deploy-test'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: jannekem/run-python-script-action@v1
+        with:
+          script: |
+            import requests 
+            print(requests.get('http://192.168.1.214:8000/start_check').json())

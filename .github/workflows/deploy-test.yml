@@ -4,11 +4,9 @@ on:
   push:
      branches:
        - main
-     paths-ignore:
-       - 'docs/**'
-       - '*.md'
+
 jobs:
-  deploy-staging:
+  deploy-test:
     environment: test
     runs-on: ubuntu-18.04
     permissions:
