@@ -2,21 +2,18 @@ name: Deploy test
 
 on:
   push:
-     branches:
-       - main
+    branches:
+      - main
 
 jobs:
   deploy-test:
     environment: test
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     permissions:
       id-token: write
       contents: read
     steps:
-      - uses: actions/checkout@v2
-      - name: Deploy Action checkout
-        uses: daspn/private-actions-checkout@v2
-        with:
-          actions_list: '["jitsecurity-bandit/test-public-repo@main"]'
-          checkout_base_path: ./.github/actions
+      - run: |
+          echo "Hello Test!"
+          echo "- in $!"
           
