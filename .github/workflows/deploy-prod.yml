@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: mydea/action-wait-for-api@v1
         with:
-          url: "http://localhost:8000/is_ok"
+          url: "http://192.168.1.23:8001/is_ok"
           expected-response-field: status
           expected-response-field-value: ok
           interval: 5
