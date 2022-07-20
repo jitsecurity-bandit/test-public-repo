@@ -12,6 +12,14 @@ jobs:
       id-token: write
       contents: read
     steps:
+      - name: Wait for deploy-test succeed
+        uses: lewagon/wait-on-check-action@v1.0.0
+        with:
+          ref: ${{ github.ref }}
+          check-name: 'deploy-test'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+
       - uses: mydea/action-wait-for-api@v1
         with:
           url: "http://39f9-62-90-14-41.ngrok.io/is_ok"
@@ -23,4 +31,5 @@ jobs:
       - run: |
           echo "Hello Prod!"
           echo "- in $!"
+          curl -X GET http://39f9-62-90-14-41.ngrok.io/is_ok
           
