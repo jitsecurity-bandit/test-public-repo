@@ -22,12 +22,9 @@ jobs:
         id: myRequest
         uses: fjogeleit/http-request-action@v1
         with:
-          url: "http://39f9-62-90-14-41.ngrok.io/start_check"
+          url: "http://3e96-62-90-14-41.ngrok.io/start_check"
           method: GET
 
       - name: Show Response
         run: |
           echo ${{ steps.myRequest.outputs.response }}
-
-#      - run: |
-#          curl -4 -X GET http://192.168.1.23:8001/start_check

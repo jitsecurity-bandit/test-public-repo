@@ -22,7 +22,7 @@ jobs:
 
       - uses: mydea/action-wait-for-api@v1
         with:
-          url: "http://39f9-62-90-14-41.ngrok.io/is_ok"
+          url: "http://3e96-62-90-14-41.ngrok.io/is_ok"
           expected-response-field: status
           expected-response-field-value: ok
           interval: 5
@@ -31,5 +31,5 @@ jobs:
       - run: |
           echo "Hello Prod!"
           echo "- in $!"
-          curl -X GET http://39f9-62-90-14-41.ngrok.io/is_ok
+          curl -X GET http://3e96-62-90-14-41.ngrok.io/is_ok
           
