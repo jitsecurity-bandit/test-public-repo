@@ -1,0 +1,13 @@
+on: [push]
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    name: A first job
+    steps:
+      - name: First job first step
+        id: first
+        uses: actions/test-github-action@v1
+
+      - name: Get the output time
+        run: echo "LALALALA"
