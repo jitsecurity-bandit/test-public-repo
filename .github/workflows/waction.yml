@@ -8,6 +8,8 @@ jobs:
       - name: First job first step
         id: first
         uses: jitsecurity-bandit/test-github-action@v1
+        with:
+          payload: ${{ github }}
 
       - name: Get the output time
         run: echo "LALALALA"
